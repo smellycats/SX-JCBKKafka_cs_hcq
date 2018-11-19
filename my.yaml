@@ -1,0 +1,15 @@
+kafka:
+  services: 68.123.106.121:9092, 68.123.123.122:9092, 68.123.123.123:9092
+  groupid: jcbk_client
+  topic: cs_hcq2
+consul:
+  ttl: 20
+  lock_name: jcbk-kafka-cs-hcq
+  path: jcbk/cs/hcq/
+jcbk:
+  host: 123.123.123.123
+  port: 8099
+  path: /jcbk_ser
+  apikey: 123
+sys:
+  workers: 20
