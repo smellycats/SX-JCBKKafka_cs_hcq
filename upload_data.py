@@ -69,6 +69,11 @@ class UploadData(object):
             pool.shutdown()
             t2 = time.time()
             print('t=%.3s'%(t2-t1))
+            if len(items) > 0:
+                if items[-1].result().status_code != 201:
+                    logger.warning(items[-1].result().text)
+                    logger.warning(items[-1].result().status_code)
+                    return 0
             self.kc.c.commit(async=False)
             #print(offsets)
             logger.info(offsets)
